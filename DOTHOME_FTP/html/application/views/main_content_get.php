@@ -35,25 +35,48 @@
                       		<div class="white-panel pn">
                       			<div class="white-header">
 						  			
+
+
+                <?php   foreach ($players as $k) {
+
+                        echo $k.'</br>';
+                  
+                } ?>
+
+
+
+
+
+
 	                      		</div>
                       		</div>
                       	</div> -->
                       	
 		    <div class="col-sibal mb">
-          
+              
               <div class="white-panel pn">
                 
                 <div class="white-header">
               
                 </div>
                 <div class="row">
-                
-                <?php   foreach ($players as $k) {
 
-                        echo $k.'</br>';
-                  
-                } ?>
-                      
+
+                    <?php 
+
+                        for($i=0; $i<10; $i++){
+
+                          echo $players[$i].' '.$champions[$i].'</br>';
+
+                        }
+
+                     ?>
+
+
+
+                 
+                </div>      
+
                 </div>
               </div>
 

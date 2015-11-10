@@ -11,7 +11,9 @@ Premium: http://www.gridgum.com
 
 /* BASIC THEME CONFIGURATION */
 
-* {  }
+* {/*border : 2px solid; 
+
+    border-color: #345455;*/}
 
 body {
     color: #797979;

@@ -1,4 +1,4 @@
-<?php 	
+ <?php 	
 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');	
 
@@ -82,7 +82,7 @@ class Welcome extends CI_Controller {
 				for($i=0;$i<10;$i++){
 
 					$player_names[] = $match_array['participantIdentities'][$i]['player']['summonerName']; //받아온 match정보들 중에서 player이름만 배열에 10개를 담음 이것도 나중에 api_control에 편입 
-									
+					$champion_ids[] =  $match_array['participants'][$i]['championId'];
 
 				}
 
@@ -98,7 +98,7 @@ class Welcome extends CI_Controller {
 
 
 
-			$data = array("players"=>$player_names);
+			$data = array("players"=>$player_names,"champions"=>$champion_ids);
 			$summoner_name = array("summoner_name"=>$summoner_name);
 
 			$this->load->view('header');
