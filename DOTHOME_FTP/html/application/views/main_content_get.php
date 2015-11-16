@@ -62,19 +62,23 @@
                 <div class="row">
 
 
+
                     <?php 
 
-                        for($i=0; $i<10; $i++){
+                        echo '<table border="1"> <tr> <th> 소환사명 </th> <th> 챔피언 </th> <th> 소환사명 </th> <th> 챔피언 </th> </tr>';
 
-                          echo $players[$i].' '.$champions[$i].'</br>';
+                        for($i=0; $i<10; $i+=2){
 
+                          echo '<tr> <td>'.$players[$i].'</td> <td> <img src="'.$Images[$i].'" width="30" height="30"/> </td>';
+                          echo '<td>'.$players[$i+1].'</td> <td> <img src="'.$Images[$i+1].'" width="30" height="30"/> </td> </tr>';  
                         }
+
+                        echo '</table>';
+
 
                      ?>
 
 
-
-                 
                 </div>      
 
                 </div>

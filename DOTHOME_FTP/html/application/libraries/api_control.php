@@ -1,11 +1,12 @@
 <?php 
 
+
 class Api_Control {
 	
 
 	public function Summoner_name_to_idInfo($summoner,$server){
 
-
+		
 	    
 	    $summoner_encoded = rawurlencode($summoner);
 	    $summoner_lower =  strtolower($summoner_encoded);
@@ -34,6 +35,7 @@ class Api_Control {
 
 
 	}
+
 
 
 	public function Summoner_id_return($data){
@@ -68,11 +70,11 @@ class Api_Control {
 		}
 
 
-	public function champion_data($championId){
+	public function champion_data($championId,$opt_num){
 
 
 
-			$curl = curl_init('https://global.api.pvp.net/api/lol/static-data/kr/v1.2/champion/'.$championId.'?champData=image&api_key=9a0e73e5-fd34-465e-a4d6-6128d96fd902');
+			$curl = curl_init('https://global.api.pvp.net/api/lol/static-data/kr/v1.2/champion/'.$championId.'?api_key=9a0e73e5-fd34-465e-a4d6-6128d96fd902');
 
 			curl_setopt($curl,CURLOPT_RETURNTRANSFER,1);
 
@@ -80,8 +82,16 @@ class Api_Control {
 
 			$champion_data_array = json_decode($result,true);
 
+			if($opt_num == 1){
 
-			return $champion_data_array['matches'];
+					return $champion_data_array['name'];
+			}
+
+			else{
+
+					return $champion_data_array['key'];
+			}
+
 
 
 
@@ -109,6 +119,7 @@ class Api_Control {
 
 
 	public function RefineSummonerName($summoner) {
+
 			utf8_encode($summoner);
 			$summoner_lower = mb_strtolower($summoner, 'UTF8');
 			$summoner_nospaces = str_replace(' ', '', $summoner_lower);
@@ -116,6 +127,16 @@ class Api_Control {
 
 			}
 
+	public function ImageReturn($championkey){
+
+			include 'champion_id.php';
+
+			$champion_name = $champion_id_list[$championkey];
+
+			$ImageUrl = 'http://ddragon.leagueoflegends.com/cdn/5.22.1/img/champion/'.$champion_name.'.png';
+
+			return $ImageUrl;
+		}
 
 
 } ?>

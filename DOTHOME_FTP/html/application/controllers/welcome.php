@@ -35,19 +35,6 @@ class Welcome extends CI_Controller {
 
 	}
 
-	public function gege(){
-
-
-		$this->load->view('header');
-		$this->load->view('sidebar');
-
-
-		$this->load->view('main_content');
-		$this->load->view('footer');
-
-
-	}
-
 	public function get($summonerName){
 
 
@@ -86,6 +73,11 @@ class Welcome extends CI_Controller {
 
 				}
 
+				for($i=0;$i<10;$i++){
+
+					$champion_image[] = $this->api_control->ImageReturn($champion_ids[$i]); 
+				}
+
 			}
 			else{
 				
@@ -98,7 +90,7 @@ class Welcome extends CI_Controller {
 
 
 
-			$data = array("players"=>$player_names,"champions"=>$champion_ids);
+			$data = array("players"=>$player_names,"champions"=>$champion_ids,"Images"=>$champion_image);
 			$summoner_name = array("summoner_name"=>$summoner_name);
 
 			$this->load->view('header');
